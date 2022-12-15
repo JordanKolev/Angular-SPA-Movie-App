@@ -6,12 +6,9 @@
         
 	  <h1>Find a movie</h1>
 	  <p>Search for a movie using the form below:</p>
-	  <form #f="ngForm" (ngSubmit)="search()">
-		<input class="form-control input-lg" type="text" placeholder="Search" aria-label="Search" name="query" required ngModel>
-		<button [disabled]="f.invalid" class="btn btn-primary mt-2" type="submit">Search</button>
-		<button [disabled]="f.invalid" class="btn btn-primary mt-2" (click)="clearSearch()">Clear Search</button>
-	  </form>
-    </div> 
+		<input class="form-control input-lg" type="text" placeholder="Search" aria-label="Search" name="query" [(ngModel)]="movieSearchVal">
+		<button class="btn btn-primary mt-2" (click)="search()" [disabled]="!movieSearchVal">Search</button>
+    </div>
  </div> 
 
  

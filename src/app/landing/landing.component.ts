@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
-  @ViewChild('f')
-  searchForm: NgForm;
+  movieSearchVal: any;
 
   constructor(
     private router: Router
@@ -21,7 +20,7 @@ export class LandingComponent implements OnInit {
   }
 
   search() {
-    const query = this.searchForm.value.query;
+    const query = this.movieSearchVal;
     this.router.navigate(['/movies/search'], { queryParams: { search: query } });
   }
 }

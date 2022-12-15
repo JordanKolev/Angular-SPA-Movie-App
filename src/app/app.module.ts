@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
-import { FooterComponent } from './footer/footer.component';
 import { MoviesComponent } from './movies/movies.component';
-import { MoviesService } from './movies.service'; 
+import { MoviesService } from './movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FormsModule } from '@angular/forms';
@@ -16,18 +15,17 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
   declarations: [
     AppComponent,
     LandingComponent,
-    FooterComponent,
     MoviesComponent,
     MovieDetailsComponent,
-    MovieSearchComponent, 
+    MovieSearchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
-    HttpClientModule, 
-    FormsModule, 
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [MoviesService], 
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

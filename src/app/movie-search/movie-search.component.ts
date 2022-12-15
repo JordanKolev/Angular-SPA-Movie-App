@@ -10,18 +10,21 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieSearchComponent implements OnInit {
 
-  searchedMovies: Movie[]; 
-  query: string; 
-  
+  searchedMovies: Movie[];
+  query: string;
 
-  constructor(private movieService: MoviesService, private route: ActivatedRoute) { }
 
-  ngOnInit() { 
-    this.route.queryParams.subscribe((params: Params) => { 
-      this.query = params['search']; 
+  constructor(
+    private movieService: MoviesService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.query = params['search'];
       this.movieService.searchMovie(this.query).subscribe(data => {
-        this.searchedMovies = data['results'];  
-      }); 
-    }); 
-  } 
+        this.searchedMovies = data['results'];
+      });
+    });
+  }
 }

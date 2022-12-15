@@ -10,20 +10,22 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  id: string; 
-  movie: MovieDetails[];  
-  genres: string; 
+  id: string;
+  movie: any;
+  genres: string;
 
-  constructor(private moviesService: MoviesService, private route: ActivatedRoute) { } 
+  constructor(
+    private moviesService: MoviesService,
+    private route: ActivatedRoute) { }
 
-  ngOnInit() { 
-    this.id = this.route.snapshot.params['id']; 
+  ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
     this.moviesService.getMovieById(this.id).subscribe(data => {
-      this.movie = data; 
-      this.genres = data['genres'].map(el => el['name']).join(' '); 
-      console.log(this.movie); 
-      console.log(this.genres); 
-    })
+      this.movie = data;
+      this.genres = data['genres'].map(el => el['name']).join(' ');
+      console.log(this.movie);
+      console.log(this.genres);
+    });
   }
 
 }

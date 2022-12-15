@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../movies.service'; 
-import Movie from '../models/Movie'; 
-import { Observable } from 'rxjs'; 
+import { MoviesService } from '../movies.service';
+import Movie from '../models/Movie';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit { 
+export class MoviesComponent implements OnInit {
 
-  popularMovies: Observable<Movie[]>;  
-  inTheatresMovies: Observable<Movie[]>; 
+  popularMovies: Observable<Movie[]>;
+  inTheatresMovies: Observable<Movie[]>;
 
-  constructor(private moviesService: MoviesService) { } 
+  constructor(
+    private moviesService: MoviesService
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.moviesService.getPopularMovies().subscribe(data => {
-      this.popularMovies = data['results'].slice(0, 6);  
-      console.log(this.popularMovies);  
-    }); 
+      this.popularMovies = data['results'].slice(0, 6);
+      console.log(this.popularMovies);
+    });
 
     this.moviesService.getInTheatresMovies().subscribe(data => {
-      this.inTheatresMovies = data['results'].slice(0, 6); 
-      console.log(this.inTheatresMovies); 
-    })
+      this.inTheatresMovies = data['results'].slice(0, 6);
+      console.log(this.inTheatresMovies);
+    });
   }
 
 }

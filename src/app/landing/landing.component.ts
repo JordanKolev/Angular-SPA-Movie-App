@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -9,17 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
-  @ViewChild ('f') 
-  searchForm: NgForm;   
+  @ViewChild('f')
+  searchForm: NgForm;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
-  } 
+  }
 
-  search() { 
-    const query = this.searchForm.value.query; 
-    this.router.navigate([ '/movies/search' ], { queryParams: { search: query } });  
-} 
-} 
+  search() {
+    const query = this.searchForm.value.query;
+    this.router.navigate(['/movies/search'], { queryParams: { search: query } });
+  }
+}

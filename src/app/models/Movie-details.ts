@@ -1,9 +1,9 @@
 interface MovieDetails {
-    title: string; 
-    poster_path: string; 
-    release_date: string; 
-    genres: Object[]; 
-    homepage: string; 
-} 
+    title: string;
+    poster_path: string;
+    release_date: string;
+    genres: {};
+    homepage: string;
+}
 
-export default MovieDetails; 
+export default MovieDetails;
